@@ -7,6 +7,8 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <cmath>  // for rounding numbers
+
 
 float averageMark(std::list<float> marks) {
     // This function finds the average
@@ -18,7 +20,7 @@ float averageMark(std::list<float> marks) {
     for (int mark : marks) {
         total += mark;
     }
-    average = total / marks.size();
+    average = round(total / marks.size() * 100) / 100;
 
     return average;
 }
@@ -37,7 +39,7 @@ int main() {
 
     while (tempNumber != "-1") {
         try {
-            std::cout << "What is your mark (as %): ";
+            std::cout << "What is your mark (1 - 100): ";
             std::cin >> tempNumber;
             tempInt = stof(tempNumber);
             if (tempInt <= 100 & tempInt >= 0) {
